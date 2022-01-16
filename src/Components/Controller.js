@@ -12,6 +12,7 @@ class Controller extends Component {
         player2Input: "",
         player1Inputs: [],
         player2Inputs: [],
+        roundFinished: false,
         gameFinished: false
     }
 
@@ -57,8 +58,23 @@ class Controller extends Component {
                 currentRound = {this.state.currentRound}  
                 />
             </div>
-            <div style={{textAlign: 'center'}}><Button onClick={this.finishRound} variant="contained">Next Round</Button></div>
-            </div>
+            {this.state.currentPlayer === 0 ? 
+            <div style={{textAlign: 'center'}}>
+                <Button 
+                onClick={this.finishRound} 
+                variant="contained">
+                    Next Round
+                </Button>
+            </div> 
+            : 
+            <div style={{textAlign: 'center'}}>
+                <Button  
+                disabled="false" 
+                variant="contained">
+                    Next Round
+                </Button>
+            </div>}
+            </div> 
         )
     }
 }
