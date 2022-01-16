@@ -12,12 +12,8 @@ class Player extends Component {
     submitData = () => {
         console.log("submitted");
         this.props.updateTurn(this.state.userInput);
-        // this.setState({userInput: ""});
+        this.setState({userInput: ""});
     }
-
-    // clearInputs = () => {
-    //     this.setState({ userInput: "", playerRound: this.state.playerRound + 1 });
-    // }
 
     render() {
         return (
@@ -38,7 +34,7 @@ class Player extends Component {
                 </div>
                 <div style={{textAlign: 'center', marginTop: '20px'}}>
                 {this.state.submitted ? <p>{this.state.userInput}</p> : null}
-                {this.props.currentRound !== this.state.playerRound ? this.setState({ userInput: "", playerRound: this.state.playerRound + 1 }) : null}
+                {this.props.currentRound !== this.state.playerRound ? this.setState({ userInput: "", playerRound: this.props.currentRound}) : null}
                 </div>
                 <div style={{textAlign: 'center'}}>
                     <Button 

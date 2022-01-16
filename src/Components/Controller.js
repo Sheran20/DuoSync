@@ -16,13 +16,32 @@ class Controller extends Component {
         gameFinished: false
     }
 
-    finishRound = () => {
+    finishRound2 = () => {
+        if (this.state.player1Input.toUpperCase() === this.state.player2Input.toUpperCase()) {
+            this.setState({
+                currentPlayer: 0,  
+                player1Inputs: [...this.state.player1Inputs, this.state.player1Input.toUpperCase()],
+                player2Inputs: [...this.state.player2Inputs, this.state.player2Input.toUpperCase()],
+                gameFinished: true
+            })
+        } else {
+            this.setState({
+                currentPlayer: 1, 
+                currentRound: this.state.currentRound + 1, 
+                player1Inputs: [...this.state.player1Inputs, this.state.player1Input.toUpperCase()],
+                player2Inputs: [...this.state.player2Inputs, this.state.player2Input.toUpperCase()],
+                gameFinished: false
+            })
+        }
+    }
+
+    newGame = () => {
         this.setState({
             currentPlayer: 1, 
-            currentRound: this.state.currentRound + 1, 
-            player1Inputs: [...this.state.player1Inputs, this.state.player1Input.toUpperCase()],
-            player2Inputs: [...this.state.player2Inputs, this.state.player2Input.toUpperCase()],
-            gameFinished: this.state.player1Input.toUpperCase() === this.state.player2Input.toUpperCase()
+            currentRound: 0, 
+            player1Inputs: [],
+            player2Inputs: [],
+            gameFinished: false
         })
     }
     
@@ -58,20 +77,21 @@ class Controller extends Component {
                 currentRound = {this.state.currentRound}  
                 />
             </div>
-            {this.state.currentPlayer === 0 ? 
+            {!this.state.gameFinished ? 
             <div style={{textAlign: 'center'}}>
                 <Button 
-                onClick={this.finishRound} 
+                onClick={this.finishRound2}
+                disabled={this.state.currentPlayer === 0 ? false : true} 
                 variant="contained">
                     Next Round
                 </Button>
             </div> 
             : 
             <div style={{textAlign: 'center'}}>
-                <Button  
-                disabled="false" 
+                <Button
+                onClick={this.newGame}   
                 variant="contained">
-                    Next Round
+                    Play Again!
                 </Button>
             </div>}
             </div> 
