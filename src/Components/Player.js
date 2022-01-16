@@ -20,7 +20,9 @@ class Player extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{padding: '40px'}}>
+                <div style={{textAlign: 'center', fontSize: '20px', marginBottom: '40px'}}>Player {this.props.playerNumber}</div>
+                <div>
                 <TextField
                     disabled={this.props.playerNumber !== this.props.turn}
                     onChange={(event) =>
@@ -32,10 +34,12 @@ class Player extends Component {
                     variant="outlined"
                     value={this.state.userInput}
                     />
-                <Button onClick={this.submitData} variant="contained">Submit</Button>
-
+                </div>
+                <div style={{textAlign: 'center', marginTop: '20px'}}>
                 {this.state.submitted ? <p>{this.state.userInput}</p> : null}
                 {this.props.currentRound !== this.state.playerRound ? this.setState({ userInput: "", playerRound: this.state.playerRound + 1 }) : null}
+                </div>
+                <div style={{textAlign: 'center'}}><Button onClick={this.submitData} variant="contained">Submit</Button></div>
             </div>
         )
     }
