@@ -5,9 +5,72 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #011F3F;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+/* Game header  */
+#game-title {
+  font-size: 3rem;
+  padding-top: 50px;
+  color: white;
+  text-shadow: 3px 0 #DA0463;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#game-header{
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Player Controls Styling*/
+
+.text-box {
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+
+#player1-box{
+  margin: 30px;
+  color: white;
+  border: solid 5px black;
+  background-color: #214dff;
+  border-radius: 10px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#player2-box{
+  margin: 30px;
+  color: white;
+  border: solid 5px black;
+  background-color: #ff2021;
+  border-radius: 10px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Previous Turns Styling */
+
+#prev-turns {
+  border: solid 5px black;
+  border-radius: 15px;
+  padding: 20px;
+  background-color: #FEF2BF;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.player-guess {
+  padding-top: 10px;
+}
+
+/* Next Button styling */
+
+.continue-button{
+  margin-top: 20px;
 }
