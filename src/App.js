@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1 style={{textAlign: 'center'}}>Synchronize</h1>
+        <h1 id="game-title" style={{textAlign: 'center'}}>DuoSync</h1>
         <Controller/>
       </div>
     )

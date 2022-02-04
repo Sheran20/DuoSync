@@ -5,10 +5,12 @@ class PrevTurns extends Component {
     render () {
         return (
             <div style={{width: '50%'}}>
-                Player {this.props.playerNumber}
-                {this.props.inputs.map(element => {
-                return <div>{element}</div>
-                })}
+                <h2>P{this.props.playerNumber} Guess</h2>
+                <div className="player-guess">
+                    {this.props.inputs.map(element => {
+                    return <div style={{paddingBottom: "10px"}}>{element}</div>
+                    })}
+                </div>
             </div>
         )
     }

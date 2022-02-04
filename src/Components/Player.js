@@ -12,18 +12,14 @@ class Player extends Component {
     submitData = () => {
         console.log("submitted");
         this.props.updateTurn(this.state.userInput);
-        // this.setState({userInput: ""});
+        this.setState({userInput: ""});
     }
-
-    // clearInputs = () => {
-    //     this.setState({ userInput: "", playerRound: this.state.playerRound + 1 });
-    // }
 
     render() {
         return (
             <div style={{padding: '40px'}}>
                 <div style={{textAlign: 'center', fontSize: '20px', marginBottom: '40px'}}>Player {this.props.playerNumber}</div>
-                <div>
+                <div className="text-box">
                 <TextField
                     disabled={this.props.playerNumber !== this.props.turn}
                     onChange={(event) =>
@@ -38,10 +34,12 @@ class Player extends Component {
                 </div>
                 <div style={{textAlign: 'center', marginTop: '20px'}}>
                 {this.state.submitted ? <p>{this.state.userInput}</p> : null}
-                {this.props.currentRound !== this.state.playerRound ? this.setState({ userInput: "", playerRound: this.state.playerRound + 1 }) : null}
+                {this.props.currentRound !== this.state.playerRound ? this.setState({ userInput: "", playerRound: this.props.currentRound}) : null}
                 </div>
                 <div style={{textAlign: 'center'}}>
                     <Button 
+                    color="success"
+                    className="submit-btn"
                     onClick={this.submitData}
                     disabled={this.props.playerNumber !== this.props.turn} 
                     variant="contained">
